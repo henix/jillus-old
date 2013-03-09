@@ -185,6 +185,14 @@ public class Pegs {
 		return asStruct(targetClass, new SettingSequence<E>(e1, e2, e3, e4, e5, e6));
 	}
 
+	public static <E> AccCapture<E> asStruct(Class<E> targetClass,
+		SettingMatcher<? super E> e1, SettingMatcher<? super E> e2,
+		SettingMatcher<? super E> e3, SettingMatcher<? super E> e4,
+		SettingMatcher<? super E> e5, SettingMatcher<? super E> e6,
+		SettingMatcher<? super E> e7) {
+		return asStruct(targetClass, new SettingSequence<E>(e1, e2, e3, e4, e5, e6, e7));
+	}
+
 	public static <E> AccCapture<E> asStruct(Class<E> targetClass, SettingMatcher<? super E>... patts) {
 		return asStruct(targetClass, new SettingSequence<E>(patts));
 	}
