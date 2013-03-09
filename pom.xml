@@ -9,7 +9,7 @@
 	<packaging>jar</packaging>
 
 	<name>jillus</name>
-	<url></url>
+	<url>https://github.com/henix/jillus</url>
 
 	<dependencies>
 		<dependency>
@@ -23,13 +23,6 @@
 	<build>
 		<finalName>jillus</finalName>
 
-		<resources>
-			<resource>
-				<directory>src/main/resources</directory>
-				<filtering>false</filtering>
-			</resource>
-		</resources>
-
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
@@ -37,15 +30,6 @@
 				<version>2.5.1</version>
 				<configuration>
 					<encoding>UTF-8</encoding>
-				</configuration>
-			</plugin>
-
-			<plugin>
-				<groupId>org.codehaus.mojo</groupId>
-				<artifactId>exec-maven-plugin</artifactId>
-				<version>1.2.1</version>
-				<configuration>
-					<mainClass></mainClass>
 				</configuration>
 			</plugin>
 		</plugins>
