@@ -9,10 +9,10 @@ import static henix.jillus.Pegs.*;
 
 import henix.jillus.*;
 import henix.jillus.pegs.*;
-import henix.jillus.test.Calc.BinaryExpr.PartExp;
+import henix.jillus.test.CalcTest.BinaryExpr.PartExp;
 import henix.jillus.utils.ToString;
 
-public class Calc {
+public class CalcTest {
 
 	// ASTs
 	public static abstract class Expr {

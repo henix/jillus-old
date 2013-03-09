@@ -10,7 +10,7 @@ import henix.jillus.PegMatcher;
 import henix.jillus.StringSource;
 import henix.jillus.utils.ToInt;
 
-public class SimpleDate {
+public class SimpleDateTest {
 
 	public static class MyDate {
 		public Integer year;
