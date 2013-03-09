@@ -228,12 +228,32 @@ public class Pegs {
 		return new PassCaptureSequence<E>(before, e, after);
 	}
 
+	public static <E> PassCaptureSequence<E> passCapture(String before, GettingMatcher<? extends E> e, PegMatcher after) {
+		return new PassCaptureSequence<E>(new Literal(before), e, after);
+	}
+
+	public static <E> PassCaptureSequence<E> passCapture(PegMatcher before, GettingMatcher<? extends E> e, String after) {
+		return new PassCaptureSequence<E>(before, e, new Literal(after));
+	}
+
+	public static <E> PassCaptureSequence<E> passCapture(String before, GettingMatcher<? extends E> e, String after) {
+		return new PassCaptureSequence<E>(new Literal(before), e, new Literal(after));
+	}
+
 	public static <E> PassCaptureSequence<E> passCapture(PegMatcher before, GettingMatcher<? extends E> e) {
 		return new PassCaptureSequence<E>(before, e);
 	}
 
+	public static <E> PassCaptureSequence<E> passCapture(String before, GettingMatcher<? extends E> e) {
+		return new PassCaptureSequence<E>(new Literal(before), e);
+	}
+
 	public static <E> PassCaptureSequence<E> passCapture(GettingMatcher<? extends E> e, PegMatcher after) {
 		return new PassCaptureSequence<E>(e, after);
+	}
+
+	public static <E> PassCaptureSequence<E> passCapture(GettingMatcher<? extends E> e, String after) {
+		return new PassCaptureSequence<E>(e, new Literal(after));
 	}
 
 	/* ## OrderChoice */
