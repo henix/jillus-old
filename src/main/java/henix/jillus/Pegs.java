@@ -301,6 +301,18 @@ public class Pegs {
 		return new GettingOrderChoice<E>(e1, e2);
 	}
 
+	public static <E> GettingOrderChoice<E> orderChoice(
+		GettingMatcher<? extends E> e1, GettingMatcher<? extends E> e2,
+		GettingMatcher<? extends E> e3) {
+		return new GettingOrderChoice<E>(e1, e2, e3);
+	}
+
+	public static <E> GettingOrderChoice<E> orderChoice(
+		GettingMatcher<? extends E> e1, GettingMatcher<? extends E> e2,
+		GettingMatcher<? extends E> e3, GettingMatcher<? extends E> e4) {
+		return new GettingOrderChoice<E>(e1, e2, e3, e4);
+	}
+
 	public static <E> GettingOrderChoice<E> orderChoice(GettingMatcher<? extends E>... patts) {
 		return new GettingOrderChoice<E>(patts);
 	}
