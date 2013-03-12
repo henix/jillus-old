@@ -192,7 +192,8 @@ public class Pegs {
 	}
 
 	public static <E> AccCapture<E> asStruct(Class<E> targetClass,
-		SettingMatcher<? super E> e1, SettingMatcher<? super E> e2, SettingMatcher<? super E> e3) {
+		SettingMatcher<? super E> e1, SettingMatcher<? super E> e2,
+		SettingMatcher<? super E> e3) {
 		return asStruct(targetClass, new SettingSequence<E>(e1, e2, e3));
 	}
 
@@ -241,6 +242,29 @@ public class Pegs {
 	}
 
 	/* ## Sequence */
+
+	public static <E> SettingSequence<E> sequence(SettingMatcher<? super E> e1, SettingMatcher<? super E> e2) {
+		return new SettingSequence<E>(e1, e2);
+	}
+
+	public static <E> SettingSequence<E> sequence(
+		SettingMatcher<? super E> e1, SettingMatcher<? super E> e2,
+		SettingMatcher<? super E> e3) {
+		return new SettingSequence<E>(e1, e2, e3);
+	}
+
+	public static <E> SettingSequence<E> sequence(
+		SettingMatcher<? super E> e1, SettingMatcher<? super E> e2,
+		SettingMatcher<? super E> e3, SettingMatcher<? super E> e4) {
+		return new SettingSequence<E>(e1, e2, e3, e4);
+	}
+
+	public static <E> SettingSequence<E> sequence(
+		SettingMatcher<? super E> e1, SettingMatcher<? super E> e2,
+		SettingMatcher<? super E> e3, SettingMatcher<? super E> e4,
+		SettingMatcher<? super E> e5) {
+		return new SettingSequence<E>(e1, e2, e3, e4, e5);
+	}
 
 	public static Sequence sequence(Object... objs) {
 		final PegMatcher[] patts = new PegMatcher[objs.length];
