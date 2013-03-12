@@ -10,7 +10,7 @@ import static henix.jillus.Pegs.*;
 import henix.jillus.*;
 import henix.jillus.pegs.*;
 import henix.jillus.test.CalcTest.BinaryExpr.PartExp;
-import henix.jillus.utils.ToString;
+import henix.jillus.utils.Identical;
 
 public class CalcTest {
 
@@ -78,7 +78,7 @@ public class CalcTest {
 			bindField(BinaryExpr.class, Expr.class, "first", TermExpr),
 			bindField(BinaryExpr.class, List.class, "others", asList(0, asStruct(PartExp.class,
 				bindNothing(spaces),
-				bindField(PartExp.class, String.class, "op", capture(ToString.instance, charInSet("*/"))),
+				bindField(PartExp.class, String.class, "op", capture(charInSet("*/"))),
 				bindNothing(spaces),
 				bindField(PartExp.class, Expr.class, "expr", TermExpr)
 			)))
@@ -88,7 +88,7 @@ public class CalcTest {
 		AddExpr.set(asStruct(BinaryExpr.class,
 			bindField(BinaryExpr.class, Expr.class, "first", MulExpr),
 			bindField(BinaryExpr.class, List.class, "others", asList(0, asStruct(PartExp.class,
-				bindField(PartExp.class, String.class, "op", punct(capture(ToString.instance, charInSet("+-")))),
+				bindField(PartExp.class, String.class, "op", punct(capture(charInSet("+-")))),
 				bindField(PartExp.class, Expr.class, "expr", MulExpr)
 			)))
 		));

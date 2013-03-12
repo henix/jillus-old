@@ -6,8 +6,10 @@ import henix.jillus.pegs.AccCapture;
 import henix.jillus.pegs.AlwaysSuccess;
 import henix.jillus.pegs.AnyChar;
 import henix.jillus.pegs.AtLeast;
+import henix.jillus.pegs.AtMost;
 import henix.jillus.pegs.CharInRange;
 import henix.jillus.pegs.CharInSet;
+import henix.jillus.pegs.Exactly;
 import henix.jillus.pegs.FakeSettingMatcher;
 import henix.jillus.pegs.GettingCapture;
 import henix.jillus.pegs.GettingIfNotMatch;
@@ -25,7 +27,8 @@ import henix.jillus.utils.ArrayListMaker;
 import henix.jillus.utils.ClassMaker;
 import henix.jillus.utils.ListAppender;
 import henix.jillus.utils.ReflectFieldSetter;
-import henix.jillus.utils.ToString;
+import henix.jillus.utils.Identical;
+import henix.jillus.utils.ToFixedValue;
 
 public class Pegs {
 
@@ -106,6 +109,26 @@ public class Pegs {
 		return atLeast(n, new Literal(str));
 	}
 
+	/* ## Exactly */
+
+	public static PegMatcher exactly(int n, PegMatcher e) {
+		return new Exactly(n, e);
+	}
+
+	public static PegMatcher exactly(int n, String str) {
+		return new Exactly(n, new Literal(str));
+	}
+
+	/* ## AtMost */
+
+	public static PegMatcher atMost(int n, PegMatcher e) {
+		return new AtMost(n, e);
+	}
+
+	public static PegMatcher atMost(int n, String str) {
+		return new AtMost(n, new Literal(str));
+	}
+
 	/* ## Capture */
 
 	public static <E> GettingCapture<E> capture(ValueCreator<E> valueCreator, PegMatcher e) {
@@ -113,7 +136,15 @@ public class Pegs {
 	}
 
 	public static GettingCapture<String> capture(PegMatcher e) {
-		return new GettingCapture<String>(ToString.instance, e);
+		return new GettingCapture<String>(Identical.instance, e);
+	}
+
+	public static <E> GettingCapture<E> captureAs(E value, PegMatcher e) {
+		return new GettingCapture<E>(new ToFixedValue<E>(value), e);
+	}
+
+	public static <E> GettingCapture<E> captureAs(E value, String s) {
+		return new GettingCapture<E>(new ToFixedValue<E>(value), new Literal(s));
 	}
 
 	/**

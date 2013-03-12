@@ -2,9 +2,9 @@ package henix.jillus.utils;
 
 import henix.jillus.ValueCreator;
 
-public class ToString implements ValueCreator<String> {
+public class Identical implements ValueCreator<String> {
 
-	public static final ToString instance = new ToString();
+	public static final Identical instance = new Identical();
 
 	public String create(String capture) {
 		return capture;
