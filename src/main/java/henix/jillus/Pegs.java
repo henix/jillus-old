@@ -22,6 +22,7 @@ import henix.jillus.pegs.Sequence;
 import henix.jillus.pegs.SetGetCapture;
 import henix.jillus.pegs.SettingAtLeast;
 import henix.jillus.pegs.SettingIfNotMatch;
+import henix.jillus.pegs.SettingOrderChoice;
 import henix.jillus.pegs.SettingSequence;
 import henix.jillus.utils.ArrayListMaker;
 import henix.jillus.utils.ClassMaker;
@@ -243,6 +244,8 @@ public class Pegs {
 
 	/* ## Sequence */
 
+	/* ### SettingSequence */
+
 	public static <E> SettingSequence<E> sequence(SettingMatcher<? super E> e1, SettingMatcher<? super E> e2) {
 		return new SettingSequence<E>(e1, e2);
 	}
@@ -265,6 +268,12 @@ public class Pegs {
 		SettingMatcher<? super E> e5) {
 		return new SettingSequence<E>(e1, e2, e3, e4, e5);
 	}
+
+	public static <E> SettingSequence<E> sequence(SettingMatcher<? super E>... patts) {
+		return new SettingSequence<E>(patts);
+	}
+
+	/* ### Sequence */
 
 	public static Sequence sequence(Object... objs) {
 		final PegMatcher[] patts = new PegMatcher[objs.length];
@@ -321,6 +330,8 @@ public class Pegs {
 
 	/* ## OrderChoice */
 
+	/* ### GettingOrderChoice */
+
 	public static <E> GettingOrderChoice<E> orderChoice(GettingMatcher<? extends E> e1, GettingMatcher<? extends E> e2) {
 		return new GettingOrderChoice<E>(e1, e2);
 	}
@@ -340,6 +351,30 @@ public class Pegs {
 	public static <E> GettingOrderChoice<E> orderChoice(GettingMatcher<? extends E>... patts) {
 		return new GettingOrderChoice<E>(patts);
 	}
+
+	/* ### SettingOrderChoice */
+
+	public static <E> SettingOrderChoice<E> orderChoice(SettingMatcher<? super E> e1, SettingMatcher<? super E> e2) {
+		return new SettingOrderChoice<E>(e1, e2);
+	}
+
+	public static <E> SettingOrderChoice<E> orderChoice(
+		SettingMatcher<? super E> e1, SettingMatcher<? super E> e2,
+		SettingMatcher<? super E> e3) {
+		return new SettingOrderChoice<E>(e1, e2, e3);
+	}
+
+	public static <E> SettingOrderChoice<E> orderChoice(
+		SettingMatcher<? super E> e1, SettingMatcher<? super E> e2,
+		SettingMatcher<? super E> e3, SettingMatcher<? super E> e4) {
+		return new SettingOrderChoice<E>(e1, e2, e3, e4);
+	}
+
+	public static <E> SettingOrderChoice<E> orderChoice(SettingMatcher<? super E>... patts) {
+		return new SettingOrderChoice<E>(patts);
+	}
+
+	/* ### OrderChoice */
 
 	public static PegMatcher orderChoice(Object... objs) {
 		final PegMatcher[] patts = new PegMatcher[objs.length];
