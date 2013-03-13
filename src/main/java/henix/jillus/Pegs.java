@@ -3,7 +3,7 @@ package henix.jillus;
 import java.util.List;
 
 import henix.jillus.pegs.AccCapture;
-import henix.jillus.pegs.AlwaysSuccess;
+import henix.jillus.pegs.EmptyString;
 import henix.jillus.pegs.AnyChar;
 import henix.jillus.pegs.AtLeast;
 import henix.jillus.pegs.AtMost;
@@ -47,15 +47,15 @@ public class Pegs {
 		return new CharInSet(s);
 	}
 
-	public static AlwaysSuccess alwaysSuccess() {
-		return AlwaysSuccess.instance;
+	public static EmptyString emptyString() {
+		return EmptyString.instance;
 	}
 
 	/**
 	 * Match end of input, like "-1" in lpeg  
 	 */
 	public static PegMatcher eof() {
-		return ifNotMatch(anyChar(), alwaysSuccess());
+		return ifNotMatch(anyChar(), emptyString());
 	}
 
 	/* ## IfNotMatch */
