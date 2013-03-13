@@ -6,7 +6,7 @@ import henix.jillus.PegMatcher;
 import henix.jillus.Source;
 import henix.jillus.ValueCreator;
 
-public class GettingCapture<T> extends GettingMatcher<T> {
+public class GettingCapture<T> implements GettingMatcher<T> {
 
 	private final PegMatcher e;
 	private final ValueCreator<T> valueCreator;
@@ -16,7 +16,6 @@ public class GettingCapture<T> extends GettingMatcher<T> {
 		this.e = e;
 	}
 
-	@Override
 	public T matchAndGet(Source src) {
 		final Mark mark = src.mark();
 		if (e.match(src)) {

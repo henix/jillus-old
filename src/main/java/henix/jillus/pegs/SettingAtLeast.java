@@ -4,7 +4,7 @@ import henix.jillus.Mark;
 import henix.jillus.SettingMatcher;
 import henix.jillus.Source;
 
-public class SettingAtLeast<T> extends SettingMatcher<T> {
+public class SettingAtLeast<T> implements SettingMatcher<T> {
 
 	private final int n;
 	private final SettingMatcher<? super T> e;
@@ -14,7 +14,6 @@ public class SettingAtLeast<T> extends SettingMatcher<T> {
 		this.e = e;
 	}
 
-	@Override
 	public boolean matchAndSet(Source src, T parentObj) {
 		final Mark mark = src.mark();
 		for (int i = 0; i < n; i++) {

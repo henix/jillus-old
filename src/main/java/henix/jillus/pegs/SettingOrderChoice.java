@@ -3,7 +3,7 @@ package henix.jillus.pegs;
 import henix.jillus.SettingMatcher;
 import henix.jillus.Source;
 
-public class SettingOrderChoice<T> extends SettingMatcher<T> {
+public class SettingOrderChoice<T> implements SettingMatcher<T> {
 
 	private final SettingMatcher<? super T>[] patts;
 

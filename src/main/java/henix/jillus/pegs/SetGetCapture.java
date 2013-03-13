@@ -13,7 +13,7 @@ import henix.jillus.Source;
  * @param <T> type of parent
  * @param <TI> type of inner value
  */
-public class SetGetCapture<T, TI> extends SettingMatcher<T> {
+public class SetGetCapture<T, TI> implements SettingMatcher<T> {
 
 	private final GettingMatcher<? extends TI> e;
 	private final FieldSetter<T, TI> fieldSetter;
@@ -23,7 +23,6 @@ public class SetGetCapture<T, TI> extends SettingMatcher<T> {
 		this.fieldSetter = fieldSetter;
 	}
 
-	@Override
 	public boolean matchAndSet(Source src, T parentObj) {
 		final TI inner = e.matchAndGet(src);
 		if (inner != null) {

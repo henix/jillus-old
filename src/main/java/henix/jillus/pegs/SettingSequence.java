@@ -4,7 +4,7 @@ import henix.jillus.Mark;
 import henix.jillus.SettingMatcher;
 import henix.jillus.Source;
 
-public class SettingSequence<T> extends SettingMatcher<T> {
+public class SettingSequence<T> implements SettingMatcher<T> {
 
 	private final SettingMatcher<? super T>[] patts;
 

@@ -8,7 +8,7 @@ import henix.jillus.Source;
 /**
  * Pass a capture from a sequence of matchers
  */
-public class PassCaptureSequence<T> extends GettingMatcher<T> {
+public class PassCaptureSequence<T> implements GettingMatcher<T> {
 
 	private final PegMatcher before;
 	private final GettingMatcher<? extends T> e;
@@ -28,7 +28,6 @@ public class PassCaptureSequence<T> extends GettingMatcher<T> {
 		this(null, e, after);
 	}
 
-	@Override
 	public T matchAndGet(Source src) {
 		final Mark mark = src.mark();
 		T ret = null;

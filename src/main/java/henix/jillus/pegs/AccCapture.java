@@ -12,7 +12,7 @@ import henix.jillus.ValueMaker;
  *
  * @param <T> type of new value
  */
-public class AccCapture<T> extends GettingMatcher<T> {
+public class AccCapture<T> implements GettingMatcher<T> {
 
 	private final SettingMatcher<? super T> e;
 	private final ValueMaker<T> valueMaker;
@@ -22,7 +22,6 @@ public class AccCapture<T> extends GettingMatcher<T> {
 		this.valueMaker = valueMaker;
 	}
 
-	@Override
 	public T matchAndGet(Source src) {
 		final T newObj = valueMaker.newValue();
 		if (e.matchAndSet(src, newObj)) {

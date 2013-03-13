@@ -5,7 +5,7 @@ import henix.jillus.Mark;
 import henix.jillus.PegMatcher;
 import henix.jillus.Source;
 
-public class GettingIfNotMatch<T> extends GettingMatcher<T> {
+public class GettingIfNotMatch<T> implements GettingMatcher<T> {
 
 	private final PegMatcher cond;
 	private final GettingMatcher<? extends T> e;
@@ -15,7 +15,6 @@ public class GettingIfNotMatch<T> extends GettingMatcher<T> {
 		this.e = e;
 	}
 
-	@Override
 	public T matchAndGet(Source src) {
 		final Mark mark = src.mark();
 		if (!cond.match(src)) {

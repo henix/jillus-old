@@ -3,7 +3,7 @@ package henix.jillus.pegs;
 import henix.jillus.GettingMatcher;
 import henix.jillus.Source;
 
-public class GettingOrderChoice<T> extends GettingMatcher<T> {
+public class GettingOrderChoice<T> implements GettingMatcher<T> {
 
 	private final GettingMatcher<? extends T>[] patts;
 

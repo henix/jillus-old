@@ -5,7 +5,7 @@ import henix.jillus.PegMatcher;
 import henix.jillus.SettingMatcher;
 import henix.jillus.Source;
 
-public class SettingIfNotMatch<T> extends SettingMatcher<T> {
+public class SettingIfNotMatch<T> implements SettingMatcher<T> {
 
 	private final PegMatcher cond;
 	private final SettingMatcher<? super T> e;
@@ -15,7 +15,6 @@ public class SettingIfNotMatch<T> extends SettingMatcher<T> {
 		this.e = e;
 	}
 
-	@Override
 	public boolean matchAndSet(Source src, T parentObj) {
 		final Mark mark = src.mark();
 		if (!cond.match(src)) {

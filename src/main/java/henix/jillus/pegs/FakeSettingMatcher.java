@@ -11,7 +11,7 @@ import henix.jillus.Source;
  *
  * @author henix
  */
-public class FakeSettingMatcher extends SettingMatcher<Object> {
+public class FakeSettingMatcher implements SettingMatcher<Object> {
 
 	private final PegMatcher e;
 
@@ -19,7 +19,6 @@ public class FakeSettingMatcher extends SettingMatcher<Object> {
 		this.e = e;
 	}
 
-	@Override
 	public boolean matchAndSet(Source src, Object parentObj) {
 		return e.match(src);
 	}
