@@ -10,7 +10,6 @@ import static henix.jillus.Pegs.*;
 import henix.jillus.*;
 import henix.jillus.pegs.*;
 import henix.jillus.test.CalcTest.BinaryExpr.PartExp;
-import henix.jillus.utils.Identical;
 
 public class CalcTest {
 

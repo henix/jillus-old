@@ -13,9 +13,9 @@ import henix.jillus.utils.ToInt;
 public class SimpleDateTest {
 
 	public static class MyDate {
-		public Integer year;
-		public Integer month;
-		public Integer day;
+		public int year;
+		public int month;
+		public int day;
 	}
 
 	static final PegMatcher digit = charInRange('0', '9');
@@ -32,8 +32,8 @@ public class SimpleDateTest {
 	@Test
 	public void main() {
 		MyDate result = mydate.matchAndGet(new StringSource("3001-4-1"));
-		Assert.assertEquals(Integer.valueOf(3001), result.year);
-		Assert.assertEquals(Integer.valueOf(4), result.month);
-		Assert.assertEquals(Integer.valueOf(1), result.day);
+		Assert.assertEquals(3001, result.year);
+		Assert.assertEquals(4, result.month);
+		Assert.assertEquals(1, result.day);
 	}
 }
