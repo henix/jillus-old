@@ -279,11 +279,7 @@ public class Pegs {
 		final PegMatcher[] patts = new PegMatcher[objs.length];
 		for (int i = 0; i < objs.length; i++) {
 			final Object obj = objs[i];
-			if (obj instanceof SettingMatcher<?>) {
-				throw new IllegalArgumentException("sequence can't accept mix SettingMatcher with PegMatcher");
-			} else if (obj instanceof GettingMatcher<?>) {
-				throw new IllegalArgumentException("sequence can't accept GettingMatcher, use passCapture instead");
-			} else if (obj instanceof PegMatcher) {
+			if (obj instanceof PegMatcher) {
 				patts[i] = (PegMatcher)obj;
 			} else if (obj instanceof String) {
 				patts[i] = new Literal((String)obj);
@@ -380,11 +376,7 @@ public class Pegs {
 		final PegMatcher[] patts = new PegMatcher[objs.length];
 		for (int i = 0; i < objs.length; i++) {
 			final Object obj = objs[i];
-			if (obj instanceof SettingMatcher<?>) {
-				throw new IllegalArgumentException("orderChoice can't accept mix SettingMatcher with PegMatcher");
-			} else if (obj instanceof GettingMatcher<?>) {
-				throw new IllegalArgumentException("orderChoice can't accept mix GettingMatcher with PegMatcher");
-			} else if (obj instanceof PegMatcher) {
+			if (obj instanceof PegMatcher) {
 				patts[i] = (PegMatcher)obj;
 			} else if (obj instanceof String) {
 				patts[i] = new Literal((String)obj);
