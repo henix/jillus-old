@@ -9,7 +9,7 @@
 	<packaging>jar</packaging>
 
 	<name>jillus</name>
-	<url>https://github.com/henix/jillus</url>
+	<url>https://github.com/henix/jillus-old</url>
 
 	<dependencies>
 		<dependency>
